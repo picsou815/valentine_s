@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour toi, Selma ❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #ffdde1;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            color: #ff4d6d;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        .no {
+            background-color: #cccccc;
+            color: black;
+            position: absolute;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            animation: float 2s linear infinite;
+        }
+        img {
+            width: 150px;
+            height: auto;
+            margin: 20px;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2 id="forcedMessage"></h2>
+    <div class="container">
+        <h1 id="question">Selma, veux-tu être ma Valentine ? ❤️</h1>
+        <div class="buttons">
+            <button class="yes" onclick="confirmLove()">Oui</button>
+            <button class="no" onclick="moveNo()">Non</button>
+        </div>
+    </div>
+    <img src="valentinehk.jpg" alt="Hello Kitty Valentine">
+    
+    <script>
+        let noClickCount = 0;
+
+        function confirmLove() {
+            alert(" clique sur ok pour voir mes seins ❤️");
+            document.body.innerHTML = "<h1 style='color:#ff4d6d;'> coquine ^^ VOILA COMME CA JE T'AIME, on baise dcp? ❤️</h1>";
+        }
+
+        function moveNo() {
+            const button = document.querySelector(".no");
+            const question = document.getElementById("question");
+            noClickCount++;
+
+            if (noClickCount >= 3) {
+                button.style.display = "none";
+                document.getElementById("forcedMessage").innerText = "Désolée, j'ai été obligée";
+            } else {
+                question.innerText = "Tu es sûre ?!";
+                button.style.left = Math.random() * (window.innerWidth - 100) + "px";
+                button.style.top = Math.random() * (window.innerHeight - 100) + "px";
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = window.innerHeight + "px";
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 2000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
